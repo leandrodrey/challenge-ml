@@ -3,8 +3,6 @@
 namespace App\Domain;
 
 use App\Util\Trilateration\Sphere;
-use http\Message;
-use JetBrains\PhpStorm\Pure;
 
 class Satellite
 {
