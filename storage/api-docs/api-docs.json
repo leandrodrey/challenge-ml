@@ -1,0 +1,204 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API Fuego de Quasar",
+        "description": "Challenge MELI",
+        "contact": {
+            "email": "leandrodrey@gmail.com"
+        },
+        "version": "1.0"
+    },
+    "servers": [
+        {
+            "url": "https://exterionmu.com:2083",
+            "description": "Servidor Online"
+        }
+    ],
+    "paths": {
+        "/api/v1/topsecret": {
+            "post": {
+                "tags": [
+                    "topsecret"
+                ],
+                "summary": "GetMessage and GetLocation",
+                "description": "Nivel 2. Retorna el mensaje y la locación del Emisor del Mensaje",
+                "operationId": "topsecret",
+                "requestBody": {
+                    "request": "VehicleStoreRequestBody",
+                    "description": "Json",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "satellites": {
+                                        "type": "array",
+                                        "items": {
+                                            "properties": {
+                                                "name": {
+                                                    "type": "string",
+                                                    "example": "kenobi"
+                                                },
+                                                "distance": {
+                                                    "type": "float",
+                                                    "example": "81175.77"
+                                                },
+                                                "message": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string",
+                                                        "example": [
+                                                            "este",
+                                                            "",
+                                                            "",
+                                                            "mensaje",
+                                                            ""
+                                                        ]
+                                                    }
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "position": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "x": {
+                                                        "type": "float",
+                                                        "example": "-100"
+                                                    },
+                                                    "y": {
+                                                        "type": "float",
+                                                        "example": "81175.77"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "este es un mensaje secreto"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v2/topsecret_split/{satellite_name}": {
+            "post": {
+                "tags": [
+                    "topsecret_split"
+                ],
+                "summary": "Envía y guarda un satelite",
+                "description": "Nivel 3. Por cada post enviaremos los datos de un satelite",
+                "operationId": "topsecretsplit",
+                "parameters": [
+                    {
+                        "name": "satellite_name",
+                        "in": "path",
+                        "description": "Nombre del satelite para el cuál vamos a enviar la información",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "request": "VehicleStoreRequestBody",
+                    "description": "Json",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "distance": {
+                                        "type": "float",
+                                        "example": 81175
+                                    },
+                                    "message": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string",
+                                            "example": [
+                                                "este",
+                                                "",
+                                                "",
+                                                "mensaje",
+                                                ""
+                                            ]
+                                        }
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
+        },
+        "/api/v2/topsecret_split": {
+            "get": {
+                "tags": [
+                    "topsecret_split"
+                ],
+                "summary": "GetMessage and GetLocation",
+                "description": "Nivel 3. Retorna el mensaje y la locación del Emisor del Mensaje si se tiene la información correcta",
+                "operationId": "getTopSecretSplit",
+                "responses": {
+                    "200": {
+                        "description": "Retorna el mensaje y la locación del Emisor del Mensaje",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "/app/components/SatelliteResponse"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Devuelve un Error si no es posible determinar los datos con la información\n     *          actual.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "/app/components/SatelliteResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Endpoints",
+            "description": ""
+        }
+    ],
+    "security": [
+        []
+    ]
+}
