@@ -19,7 +19,7 @@ class RestoredMessageTest extends TestCase
         self::assertSame($expected, $message->getFinalMessage());
     }
 
-    #[Pure] function getMessageProvider(): array
+    function getMessageProvider(): array
     {
         return [
             [
