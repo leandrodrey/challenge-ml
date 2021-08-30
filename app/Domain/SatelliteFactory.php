@@ -13,6 +13,8 @@ class SatelliteFactory
     ];
 
     /**
+     * Genera un array de Satellites
+     *
      * @param array $requestedSatellites
      * @return array
      */
@@ -25,6 +27,8 @@ class SatelliteFactory
     }
 
     /**
+     * Solo construye un Satellite
+     *
      * @param string $satelliteName
      * @param float $satelliteDistance
      * @param array $satelliteMessage

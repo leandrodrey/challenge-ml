@@ -9,6 +9,8 @@ class GetMessageService
 {
 
     /**
+     * Retorna el mensaje original tal cual lo envió el emisor
+     *
      * @param array $satellites
      * @return string
      */

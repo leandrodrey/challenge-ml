@@ -20,6 +20,8 @@ class GetLocationService
     }
 
     /**
+     * Retorna la posición del emisor del mensaje
+     *
      * @param array $requestedSatellites
      * @return Point
      */

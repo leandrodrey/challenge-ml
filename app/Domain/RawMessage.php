@@ -13,6 +13,8 @@ class RawMessage
     }
 
     /**
+     * Cuenta la cantidad de elementos que tiene un array
+     *
      * @return int
      */
     public function countElements(): int
@@ -23,6 +25,7 @@ class RawMessage
     /**
      * Corta el mensaje para llegar al tamaño recibido
      * Si el tamaño recibido es mayor o igual al actual no se corta
+     *
      * @param int $size
      */
     public function chop(int $size)
@@ -42,7 +45,7 @@ class RawMessage
     }
 
     /**
-     * This method cleans empty elements and creates a new array saving the position and value.
+     * Limpia los elementos del array que sean strings vacíos
      *
      * @return array
      */

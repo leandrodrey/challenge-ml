@@ -2,8 +2,6 @@
 
 namespace App\Domain;
 
-use JetBrains\PhpStorm\Pure;
-
 class RestoredMessage
 {
     /** @var array */
@@ -20,7 +18,7 @@ class RestoredMessage
     }
 
     /**
-     * Este método retornará el mensaje final según los arrays enviados
+     * Retornará el mensaje final según los arrays enviados
      *
      * @return string
      */
@@ -32,7 +30,7 @@ class RestoredMessage
     }
 
     /**
-     * Este método devuelve cuál es el tamaño mínimo de elementos de un array de una lista de arrays
+     * Devuelve cuál es el tamaño mínimo de elementos de un array de una lista de arrays
      *
      * @param $rawMessages
      * @return int
@@ -47,7 +45,7 @@ class RestoredMessage
     }
 
     /**
-     * Este método elimina los X primeros elementos de un array según el $size que se le pasee
+     * Elimina los X primeros elementos de un array según el $size que se le pasee
      *
      * @param $rawMessages
      * @param $size
@@ -62,7 +60,7 @@ class RestoredMessage
     }
 
     /**
-     * Este método limpia los elementos del array que sean strings vacíos
+     * Limpia los elementos del array que sean strings vacíos
      *
      * @param $rawMessages
      * @return array

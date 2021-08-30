@@ -59,6 +59,8 @@ class Satellite
     }
 
     /**
+     * Crea una nueva Sphere utilizando la posición y la distancia
+     *
      * @return Sphere
      */
     public function createNewSphere(): Sphere {
