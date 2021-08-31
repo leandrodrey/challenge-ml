@@ -24,13 +24,12 @@ docker build . -t satellite
 ```
 
 ```bash
-docker up
+docker-compose up
 ```
 
 ```bash
-docker rup app
+docker-compose rup app
 ```
-
 
 ## Instalar
 
