@@ -3,6 +3,18 @@
 # Construcción
 El proyecto fue realizado utilizando PHP sobre el framework [Laravel](https://laravel.com/), también se utilizó [Composer](https://getcomposer.org/) y [MySQL](https://www.mysql.com/).
 
+# Swagger Documentation
+Se utilizó [Swagger](https://swagger.io/) con la librería [L5 Swagger](https://github.com/DarkaOnLine/L5-Swagger) para Laravel.
+> http://localhost:8000/api/doc
+
+# End Points
+
+> [POST] localhost:8080/api/v1/topsecret
+
+> [GET] localhost:8080/api/v2/topsecret_split
+
+> [POST] localhost:8080/api/v2/topsecret_split/{satellite_name}
+
 ## Instalar
 
 ### Requerimientos
@@ -35,14 +47,6 @@ php artisan key:generate
 ```bash
 php artisan serve
 ```
-
-# End Points
-
-> [POST] localhost:8080/api/v1/topsecret
->
-> [GET] localhost:8080/api/v2/topsecret_split
->
-> [POST] localhost:8080/api/v2/topsecret_split/{satellite_name}
                                                                                            
 # Problemas a resolver
 
@@ -67,7 +71,4 @@ se debía calcular la posición del cuarto punto (Emisor del Mensaje).
                
 ### Resolución
 
-Para resolver este problema se utilizó el método [Trilateración](https://es.wikipedia.org/wiki/Trilateraci%C3%B3n). Y para aplicarlo se implementaron dos librerías:
-* [https://github.com/nubs/vectorix](https://github.com/nubs/vectorix)
-* [https://github.com/tuupola/trilateration](https://github.com/tuupola/trilateration)
-
+Para resolver este problema se utilizó el método [Trilateración](https://es.wikipedia.org/wiki/Trilateraci%C3%B3n) basado en https://www.101computing.net/cell-phone-trilateration-algorithm. También se utilizó [Desmos](https://www.desmos.com/calculator/vdy4hafwyb?lang=es) para comprobar la resolución.
