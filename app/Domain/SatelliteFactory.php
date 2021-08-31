@@ -7,19 +7,18 @@ class SatelliteFactory
 
     /** @var array|float[][] */
     static array $satellitePosition = [
-        "kenobi" => [60.1695, 24.9354],
-        "skywalker" => [58.3806, 26.7251],
-        "sato" => [58.3859, 24.4971]
+        "kenobi" => [-96, 71],
+        "skywalker" => [107, 148],
+        "sato" => [118, -30]
     ];
 
-    /*
-
+    /* Datos del Enunciado
     static array $satellitePosition = [
         "kenobi" => [-500,-200],
         "skywalker" => [100, -100],
         "sato" => [500, 100]
     ];
-     * */
+    */
 
     /**
      * Genera un array de Satellites en base a un mapa sin tipo
