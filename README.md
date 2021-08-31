@@ -1,7 +1,8 @@
 # Challenge MELI, Fuego de Quasar
+https://github.com/leandrodrey/challenge
 
 # Construcción
-El proyecto fue realizado utilizando PHP sobre el framework [Laravel](https://laravel.com/), también se utilizó [Composer](https://getcomposer.org/) y [MySQL](https://www.mysql.com/).
+El proyecto fue realizado utilizando PHP sobre el framework [Laravel](https://laravel.com/), también se utilizó [Composer](https://getcomposer.org/), [MySQL](https://www.mysql.com/).
 
 # Swagger Documentation
 Se utilizó [Swagger](https://swagger.io/) con la librería [L5 Swagger](https://github.com/DarkaOnLine/L5-Swagger) para Laravel.
