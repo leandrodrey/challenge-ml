@@ -17,7 +17,8 @@ Los endpoints se encuentran documentados con swagger.
 Ejemplo de Request:
 ```bash
 {
-	"satellites": [{
+	"satellites": [
+	{
 			"name": "kenobi",
 			"distance": 116.764720699,
 			"message": ["", "", "pepito", "", "", "genio", ""]
@@ -49,12 +50,29 @@ Ejemplo de Response
 ```
 > [POST] [http://localhost:8000/api/v2/topsecret_split/{satellite_name}](http://localhost:8000/api/v2/topsecret_split)
 
-Ejemplo de Request:
->   http://localhost:8000/api/v2/topsecret_split/kenobi
+Ejemplos de Request:
 ```bash
+- http://localhost:8000/api/v2/topsecret_split/kenobi
+
 {
-    "distance": 81175,
-    "message": ["este", "", "", "mensaje", ""]
+    "distance": 116.764720699,
+    "message": ["", "", "pepito", "", "", "genio", ""]
+}
+```
+```bash
+- http://localhost:8000/api/v2/topsecret_split/skywalker
+
+{
+    "distance": 177.200451467,
+    ["", "es", "", "", "secreto"]
+}
+```
+```bash
+- http://localhost:8000/api/v2/topsecret_split/sato
+
+{
+    "distance": 122.413234579,
+    "message": ["pepito", "", "un", "genio", ""]
 }
 ```
 
