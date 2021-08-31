@@ -12,71 +12,83 @@ class SatelliteFactoryTest extends TestCase
     /**
      * @dataProvider getSatellitesProvider
      */
-    function test_buildSatellites($requestedSatellites, $expected) {
+    function test_buildSatellites($requestedSatellites, $expected)
+    {
         $satelliteFactory = new SatelliteFactory();
-        print_r($expected);
         self::assertEquals($expected, $satelliteFactory->buildSatellites($requestedSatellites));
-     }
-
-    function test_buildSatellite() {
-
     }
 
-    function getSatellitesProvider()
+    /**
+     * @dataProvider getSatelliteProvider
+    */
+    function test_buildSatellite($requestedSatellite, $expected)
+    {
+        $satelliteFactory = new SatelliteFactory();
+        self::assertEquals($expected, $satelliteFactory->buildSatellite($requestedSatellite["name"], $requestedSatellite["distance"], $requestedSatellite["message"]));
+    }
+
+    /**
+     * @return array[]
+     */
+    function getSatellitesProvider(): array
     {
         return [
             [
                 [
                     [
                         "name" => "kenobi",
-                        "distance" => 110,
+                        "distance" => 116.764720699,
                         "message" => ["este", "", "", "mensaje", ""]
                     ],
                     [
                         "name" => "skywalker",
-                        "distance" => 115.5,
+                        "distance" => 177.200451467,
                         "message" => ["", "es", "", "", "secreto"]
                     ],
                     [
                         "name" => "sato",
-                        "distance" => 142.7,
+                        "distance" => 122.413234579,
                         "message" => ["este", "", "un", "", ""]
                     ]
                 ],
-                /*[
-                    $this->getMockBuilder(Satellite::class)->setConstructorArgs(["kenobi", 110, ["este", "", "", "mensaje", ""], [60.1695,24.9354]])->getMock(),
-                    $this->getMockBuilder(Satellite::class)->setConstructorArgs(["skywalker", 115.5, ["", "es", "", "", "secreto"], [58.3806, 26.7251]])->getMock(),
-                    $this->getMockBuilder(Satellite::class)->setConstructorArgs(["sato", 142.7, ["este", "", "un", "", ""], [58.3859, 24.4971]])->getMock()
-                ]*/
                 [
-                    new Satellite("kenobi", 110, ["este", "", "", "mensaje", ""], [60.1695,24.9354]),
-                    new Satellite("skywalker", 115.5, ["", "es", "", "", "secreto"], [58.3806, 26.7251]),
-                    new Satellite("sato", 142.7, ["este", "", "un", "", ""], [58.3859, 24.4971])
+                    new Satellite("kenobi", 116.764720699, ["este", "", "", "mensaje", ""], [-96, 71]),
+                    new Satellite("skywalker", 177.200451467, ["", "es", "", "", "secreto"], [107, 148]),
+                    new Satellite("sato", 122.413234579, ["este", "", "un", "", ""], [118, -30])
                 ]
+            ]
+        ];
+    }
+
+    /**
+     * @return array[]
+     */
+    function getSatelliteProvider(): array
+    {
+        return [
+            [
+                [
+                    "name" => "kenobi",
+                    "distance" => 110,
+                    "message" => ["este", "", "", "mensaje", ""]
+                ],
+                new Satellite("kenobi", 110, ["este", "", "", "mensaje", ""], [-96, 71]),
             ],
             [
                 [
-                    [
-                        "name" => "kenobi",
-                        "distance" => 81175,
-                        "message" => ["", "", "pepito", "", "", "genio", ""]
-                    ],
-                    [
-                        "name" => "skywalker",
-                        "distance" => 162311,
-                        "message" => ["", "es", "", "", "secreto"]
-                    ],
-                    [
-                        "name" => "sato",
-                        "distance" => 116932,
-                        "message" => ["pepito", "", "un", "genio", ""]
-                    ]
+                    "name" => "skywalker",
+                    "distance" => 110,
+                    "message" => ["", "es", "", "", "secreto"]
                 ],
+                new Satellite("skywalker", 110, ["", "es", "", "", "secreto"], [107, 148])
+            ],
+            [
                 [
-                    new Satellite("kenobi", 81175, ["", "", "pepito", "", "", "genio", ""], [60.1695,24.9354]),
-                    new Satellite("skywalker", 162311, ["", "es", "", "", "secreto"], [58.3806, 26.7251]),
-                    new Satellite("sato", 116932, ["pepito", "", "un", "genio", ""], [58.3859, 24.4971])
-                ]
+                    "name" => "sato",
+                    "distance" => 110,
+                    "message" => ["pepito", "", "un", "genio", ""]
+                ],
+                new Satellite("sato", 110, ["pepito", "", "un", "genio", ""], [118, -30])
             ]
         ];
     }
