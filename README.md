@@ -18,7 +18,7 @@ Ejemplo de Request:
 ```bash
 {
 	"satellites": [
-	{
+	    {
 			"name": "kenobi",
 			"distance": 116.764720699,
 			"message": ["", "", "pepito", "", "", "genio", ""]
@@ -64,7 +64,7 @@ Ejemplos de Request:
 
 {
     "distance": 177.200451467,
-    ["", "es", "", "", "secreto"]
+    "message": ["", "es", "", "", "secreto"]
 }
 ```
 ```bash
