@@ -17,6 +17,8 @@ Se utilizó [Swagger](https://swagger.io/) con la librería [L5 Swagger](https:/
 
 # Docker
 
+* Generar el archivo ".env" renombrando o compilando el archivo ".env.example".
+
 ```bash
 docker build . -t satellite
 ```
