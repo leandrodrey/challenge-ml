@@ -20,7 +20,7 @@ use Illuminate\Http\Request;
  * )
  *
  * @OA\Server(
- *     url="https://exterionmu.com:2083",
+ *     url="http://127.0.0.1:8000",
  *     description="Servidor Online"
  * )
  *
@@ -161,14 +161,20 @@ class SatelliteController extends Controller
      *      description="Nivel 3. Retorna el mensaje y la locación del Emisor del Mensaje si se tiene la información correcta",
      *      @OA\Response(
      *          response=200,
-     *          description="Retorna el mensaje y la locación del Emisor del Mensaje",
-     *          @OA\JsonContent(ref="/app/components/SatelliteResponse")
-     *       ),
+     *          description="",
+     *          @OA\JsonContent(
+     *              @OA\Property(property="position", type="array",
+     *                  @OA\Items(
+     *                      @OA\Property(property="x",type="float", example="0.9999999995511485"),
+     *                      @OA\Property(property="y",type="float", example="5.999999999929179")
+     *                  )
+     *             ),
+     *             @OA\Property(property="message",type="string", example="este es un mensaje secreto"),
+     *         ),
+     *     ),
      *     @OA\Response(
      *          response=404,
-     *          description="Devuelve un Error si no es posible determinar los datos con la información
-     *          actual.",
-     *          @OA\JsonContent(ref="/app/components/SatelliteResponse")
+     *          description="There are not enough satellites to calculate the location and message",
      *       )
      *     )
      *
