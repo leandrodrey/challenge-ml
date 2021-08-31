@@ -10,7 +10,7 @@
     },
     "servers": [
         {
-            "url": "https://exterionmu.com:2083",
+            "url": "http://127.0.0.1:8000",
             "description": "Servidor Online"
         }
     ],
@@ -169,24 +169,39 @@
                 "operationId": "getTopSecretSplit",
                 "responses": {
                     "200": {
-                        "description": "Retorna el mensaje y la locación del Emisor del Mensaje",
+                        "description": "",
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "/app/components/SatelliteResponse"
+                                    "properties": {
+                                        "position": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "x": {
+                                                        "type": "float",
+                                                        "example": "0.9999999995511485"
+                                                    },
+                                                    "y": {
+                                                        "type": "float",
+                                                        "example": "5.999999999929179"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "este es un mensaje secreto"
+                                        }
+                                    },
+                                    "type": "object"
                                 }
                             }
                         }
                     },
                     "404": {
-                        "description": "Devuelve un Error si no es posible determinar los datos con la información\n     *          actual.",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "/app/components/SatelliteResponse"
-                                }
-                            }
-                        }
+                        "description": "There are not enough satellites to calculate the location and message"
                     }
                 }
             }
