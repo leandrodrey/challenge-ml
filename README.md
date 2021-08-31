@@ -13,11 +13,63 @@ Se utilizó [Swagger](https://swagger.io/) con la librería [L5 Swagger](https:/
 Los endpoints se encuentran documentados con swagger.
 
 > [POST] [http://localhost:8000/api/v1/topsecret](http://localhost:8000/api/v1/topsecret)
+   
+Ejemplo de Request:
+```bash
+{
+	"satellites": [{
+			"name": "kenobi",
+			"distance": 116.764720699,
+			"message": ["", "", "pepito", "", "", "genio", ""]
+
+		},
+		{
+			"name": "skywalker",
+			"distance": 177.200451467,
+			"message": ["", "es", "", "", "secreto"]
+
+		},
+		{
+			"name": "sato",
+			"distance": 122.413234579,
+			"message": ["pepito", "", "un", "genio", ""]
+		}
+	]
+}
+```
+Ejemplo de Response
+```bash
+{
+    "position": {
+        "x": 0.9999999995511485,
+        "y": 5.999999999929179
+    },
+    "message": "pepito es un genio secreto"
+}
+```
+> [POST] [http://localhost:8000/api/v2/topsecret_split/{satellite_name}](http://localhost:8000/api/v2/topsecret_split)
+
+Ejemplo de Request:
+>   http://localhost:8000/api/v2/topsecret_split/kenobi
+```bash
+{
+    "distance": 81175,
+    "message": ["este", "", "", "mensaje", ""]
+}
+```
 
 > [GET] [http://localhost:8000/api/v2/topsecret_split](http://localhost:8000/api/v2/topsecret_split)
 
-> [POST] [http://localhost:8000/api/v2/topsecret_split/{satellite_name}](http://localhost:8000/api/v2/topsecret_split)
-
+Ejemplo de Response
+```bash
+{
+    "position": {
+        "x": 0.9999999995511485,
+        "y": 5.999999999929179
+    },
+    "message": "pepito es un genio secreto"
+}
+```
 # Docker
 
 * Generar el archivo ".env" renombrando o compilando el archivo ".env.example".
