@@ -8,13 +8,15 @@ El proyecto fue realizado utilizando PHP sobre el framework [Laravel](https://la
 Se utilizó [Swagger](https://swagger.io/) con la librería [L5 Swagger](https://github.com/DarkaOnLine/L5-Swagger) para Laravel.
 > http://localhost:8000/api/doc
 
-# End Points
+## End Points
 
-> [POST] localhost:8080/api/v1/topsecret
+Los endpoints se encuentran documentados con swagger.
 
-> [GET] localhost:8080/api/v2/topsecret_split
+> [POST] [http://localhost:8000/api/v1/topsecret](http://localhost:8000/api/v1/topsecret)
 
-> [POST] localhost:8080/api/v2/topsecret_split/{satellite_name}
+> [GET] [http://localhost:8000/api/v2/topsecret_split](http://localhost:8000/api/v2/topsecret_split)
+
+> [POST] [http://localhost:8000/api/v2/topsecret_split/{satellite_name}](http://localhost:8000/api/v2/topsecret_split)
 
 # Docker
 
