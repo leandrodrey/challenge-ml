@@ -82,7 +82,7 @@ class SatelliteController extends Controller
      *          response=200,
      *          description="",
      *          @OA\JsonContent(
-     *              @OA\Property(property="position", type="string",
+     *              @OA\Property(property="position", type="array",
      *                  @OA\Items(
      *                      @OA\Property(property="x",type="float", example="-100"),
      *                      @OA\Property(property="y",type="float", example="81175.77")
@@ -178,7 +178,7 @@ class SatelliteController extends Controller
     {
         $satellites = $this->satelliteCrudService->index();
         if (count($satellites) < 3) {
-            return response()->json("Not enough satellites to calculate location and message", 404);
+            return response()->json("There are not enough satellites to calculate the location and message", 404);
         }
         $finalMessage = $this->getMessageService->getMessage($satellites);
         $location = $this->getLocationService->getLocation($satellites);
