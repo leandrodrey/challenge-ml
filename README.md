@@ -15,6 +15,21 @@ Se utilizó [Swagger](https://swagger.io/) con la librería [L5 Swagger](https:/
 
 > [POST] localhost:8080/api/v2/topsecret_split/{satellite_name}
 
+# Docker
+
+```bash
+docker build . -t satellite
+```
+
+```bash
+docker up
+```
+
+```bash
+docker rup app
+```
+
+
 ## Instalar
 
 ### Requerimientos
