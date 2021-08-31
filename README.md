@@ -104,20 +104,19 @@ docker-compose up
 docker-compose rup app
 ```
 
-## Instalar
+## Instalación Manual
 
 ### Requerimientos
 * PHP 8.0.6
 * MySql 15 
 * Composer
 
-### Pasos
-* Clonar el repositorio
+1. Clonar el repositorio
 ```bash
 git clone https://github.com/leandrodrey/challenge.git
 ```
 
-* Entrar a la carpeta del proyecto y actualizar
+2. Entrar a la carpeta del proyecto y actualizar:
 ```bash
 cd challenge
 ```
@@ -125,14 +124,14 @@ cd challenge
 composer update
 ```
 
-* Generar el archivo ".env" renombrando o compilando el archivo ".env.example".
+3. Generar el archivo ".env" renombrando o compilando el archivo ".env.example".
 
-* Generar la key del proyecto.
+4. Generar la key del proyecto.
 ```bash
 php artisan key:generate
 ```
   
-* Inicializar el server
+5. Inicializar el server
 ```bash
 php artisan serve
 ```
