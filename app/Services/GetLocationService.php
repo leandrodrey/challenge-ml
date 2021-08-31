@@ -3,10 +3,9 @@
 namespace App\Services;
 
 use App\Domain\Satellite;
-use App\Domain\RequestedSatellite;
 use App\Domain\SatelliteFactory;
-use App\Util\Trilateration\Intersection;
 use App\Util\Trilateration\Point;
+use App\Util\Trilateration\TrilaterationCalc;
 
 class GetLocationService
 {
@@ -28,8 +27,8 @@ class GetLocationService
     function getLocation(array $requestedSatellites): Point
     {
         $satellites = $this->factory->buildSatellites($requestedSatellites);
-        $trilateration = new Intersection($satellites[0]->createNewSphere(), $satellites[1]->createNewSphere(), $satellites[2]->createNewSphere());
-        return $trilateration->position();
+        $trilateration = new TrilaterationCalc($satellites[0]->createNewSphere(), $satellites[1]->createNewSphere(), $satellites[2]->createNewSphere());
+        return $trilateration->calculatePosition();
     }
 
 }
