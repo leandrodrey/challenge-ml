@@ -16,6 +16,9 @@ class GetMessageServiceTest extends TestCase
         self::assertSame($expected, $getMessageService->getMessage($request));
     }
 
+    /**
+     * @return array[]
+     */
     function getMessageProvider(): array
     {
         return [
