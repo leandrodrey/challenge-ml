@@ -9,7 +9,7 @@ class Satellites extends Model
 {
     use HasFactory;
     //protected $primaryKey = 'idCategoria';
-    public bool $timestamps = false;
+    public $timestamps = false;
 
     public function getMessageAttribute($value)  {
         return unserialize($value);
