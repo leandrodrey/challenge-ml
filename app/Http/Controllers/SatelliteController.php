@@ -6,8 +6,10 @@ use App\Services\GetLocationService;
 use App\Services\GetMessageService;
 use App\Services\GetResponseFormatService;
 use App\Services\SatelliteCrudService;
+use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Throwable;
 
 /**
  * @OA\Info(
@@ -179,6 +181,7 @@ class SatelliteController extends Controller
      *     )
      *
      * @return JsonResponse
+     * @throws Exception
      */
     public function getTopSecretSplit(): JsonResponse
     {
@@ -186,8 +189,16 @@ class SatelliteController extends Controller
         if (count($satellites) < 3) {
             return response()->json("There are not enough satellites to calculate the location and message", 404);
         }
-        $finalMessage = $this->getMessageService->getMessage($satellites);
-        $location = $this->getLocationService->getLocation($satellites);
+        try {
+            $finalMessage = $this->getMessageService->getMessage($satellites);
+        } catch (Throwable $e) {
+            throw new Exception("There are not enough satellites to calculate the message");
+        }
+        try {
+            $location = $this->getLocationService->getLocation($satellites);
+        } catch (Throwable $e) {
+            throw new Exception("There are not enough satellites to calculate the location");
+        }
         $response = $this->getResponseFormatService->getResponseFormat($location->latitude(), $location->longitude(), $finalMessage);
         return response()->json($response, 200);
     }
