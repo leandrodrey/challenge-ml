@@ -22,46 +22,69 @@
                 ],
                 "summary": "GetMessage and GetLocation",
                 "description": "Nivel 2. Retorna el mensaje y la locación del Emisor del Mensaje",
-                "operationId": "topsecret",
+                "operationId": "4977b35dddad154dae594385f4cfa92c",
                 "requestBody": {
-                    "request": "VehicleStoreRequestBody",
-                    "description": "Json",
-                    "required": true,
                     "content": {
                         "application/json": {
                             "schema": {
                                 "properties": {
-                                    "satellites": {
-                                        "type": "array",
-                                        "items": {
-                                            "properties": {
-                                                "name": {
-                                                    "type": "string",
-                                                    "example": "kenobi"
-                                                },
-                                                "distance": {
-                                                    "type": "float",
-                                                    "example": "81175.77"
-                                                },
-                                                "message": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "type": "string",
-                                                        "example": [
-                                                            "este",
-                                                            "",
-                                                            "",
-                                                            "mensaje",
-                                                            ""
-                                                        ]
-                                                    }
-                                                }
-                                            },
-                                            "type": "object"
-                                        }
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "distance": {
+                                        "type": "float"
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": [
+                                            "pepito",
+                                            "",
+                                            "un",
+                                            "genio",
+                                            ""
+                                        ]
                                     }
                                 },
-                                "type": "object"
+                                "type": "object",
+                                "example": {
+                                    "satellites": [
+                                        {
+                                            "name": "kenobi",
+                                            "distance": 116.764720699,
+                                            "message": [
+                                                "",
+                                                "",
+                                                "pepito",
+                                                "",
+                                                "",
+                                                "genio",
+                                                ""
+                                            ]
+                                        },
+                                        {
+                                            "name": "skywalker",
+                                            "distance": 177.200451467,
+                                            "message": [
+                                                "",
+                                                "es",
+                                                "",
+                                                "",
+                                                "secreto"
+                                            ]
+                                        },
+                                        {
+                                            "name": "sato",
+                                            "distance": 122.413234579,
+                                            "message": [
+                                                "pepito",
+                                                "",
+                                                "un",
+                                                "genio",
+                                                ""
+                                            ]
+                                        }
+                                    ]
+                                }
                             }
                         }
                     }
