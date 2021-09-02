@@ -59,38 +59,50 @@ class SatelliteController extends Controller
 
     /**
      * @OA\Post(
-     *      path="/api/v1/topsecret",
-     *      operationId="topsecret",
-     *      tags={"topsecret"},
-     *      summary="GetMessage and GetLocation",
-     *      description="Nivel 2. Retorna el mensaje y la locación del Emisor del Mensaje",
-     *      @OA\RequestBody(
-     *          request="VehicleStoreRequestBody",
-     *          description="Json",
-     *          required=true,
-     *          @OA\JsonContent(
-     *              @OA\Property(property="satellites", type="array",
-     *                  @OA\Items(
-     *                      @OA\Property(property="name",type="string", example="kenobi"),
-     *                      @OA\Property(property="distance",type="float", example="81175.77"),
-     *                      @OA\Property(property="message",type="array",
-     *                          @OA\Items(type="string",example={"este", "", "", "mensaje", ""})
-     *                      )
-     *                  )
-     *              )
-     *          )
-     *      ),
-     *      @OA\Response(
-     *          response=200,
-     *          description="",
-     *          @OA\JsonContent(
-     *              @OA\Property(property="position", type="array",
-     *                  @OA\Items(
-     *                      @OA\Property(property="x",type="float", example="-100"),
-     *                      @OA\Property(property="y",type="float", example="81175.77")
-     *                  )
-     *             ),
-     *             @OA\Property(property="message",type="string", example="este es un mensaje secreto"),
+     *     path="/api/v1/topsecret",
+     *     summary="GetMessage and GetLocation",
+     *     description="Nivel 2. Retorna el mensaje y la locación del Emisor del Mensaje",
+     *     tags={"topsecret"},
+     *     @OA\RequestBody(
+     *         @OA\MediaType(
+     *             mediaType="application/json",
+     *          @OA\Schema(
+     *             @OA\Property(property="name",type="string"),
+     *             @OA\Property(property="distance",type="float"),
+     *             @OA\Property(property="message",type="string", example={"pepito", "", "un", "genio", ""}),
+     *             example={
+     *                      "satellites": {
+     *                           {
+     *                              "name":"kenobi",
+     *                              "distance": 116.764720699,
+     *                              "message": {"", "", "pepito", "", "", "genio", ""}
+     *                          },
+     *                          {
+     *                              "name":"skywalker",
+     *                              "distance": 177.200451467,
+     *                              "message": {"", "es", "", "", "secreto"}
+     *                          },
+     *                          {
+     *                              "name":"sato",
+     *                               "distance": 122.413234579,
+     *                              "message": {"pepito", "", "un", "genio", ""}
+     *                          }
+     *                      }
+     *                  }
+     *             )
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="",
+     *         @OA\JsonContent(
+     *             @OA\Property(property="position", type="array",
+     *                 @OA\Items(
+     *                     @OA\Property(property="x",type="float", example="-100"),
+     *                     @OA\Property(property="y",type="float", example="81175.77")
+     *                 )
+     *            ),
+     *            @OA\Property(property="message",type="string", example="este es un mensaje secreto"),
      *         ),
      *     )
      * )
