@@ -1,6 +1,22 @@
 version: "3.8"
 services:
 
+    # MySQL database service
+    db:
+        image: mysql:5.7
+        container_name: mysql_db
+        hostname: mysql_db
+        ports:
+            - "3306:3306"
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+        env_file:
+            - ./.env
+        networks:
+            - dockerlan
+        volumes:
+            - ./data:/var/lib/mysql
+
     # PHP service
     app:
         image: satellite
@@ -12,29 +28,11 @@ services:
         ports:
             - "8000:8000"
         networks:
-            - app-network
-
-    # MySQL database service
-    db:
-        image: mysql:5.7
-        container_name: mysql-db
-        ports:
-            - "3306:3306"
-        environment:
-            MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
-            MYSQL_ALLOW_EMPTY_PASSWORD: ${DB_ALLOW_EMPTY_PASSWORD}
-            MYSQL_DATABASE: ${DB_DATABASE}
-            MYSQL_PASSWORD: ${DB_PASSWORD}
-        env_file:
-            - ./.env
-        networks:
-            - app-network
-        volumes:
-            - ./data:/var/lib/mysql
+            - dockerlan
+        entrypoint: ./entrypoint.sh
 
 networks:
-    app-network:
-        driver: bridge
+    dockerlan:
 
 volumes:
     data:
