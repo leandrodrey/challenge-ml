@@ -1,5 +1,5 @@
 # Challenge MELI, Fuego de Quasar
-https://github.com/leandrodrey/challenge
+https://github.com/leandrodrey/challenge-ml
 
 # Construcción
 El proyecto fue realizado utilizando PHP sobre el framework [Laravel](https://laravel.com/), también se utilizó [Composer](https://getcomposer.org/), [MySQL](https://www.mysql.com/).
